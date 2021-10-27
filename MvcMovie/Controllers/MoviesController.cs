@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -86,6 +88,8 @@ namespace MvcMovie.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Movie movie)
         {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("es-ES");
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("es-ES");
             if (ModelState.IsValid)
             {
                 _context.Add(movie);
@@ -98,6 +102,9 @@ namespace MvcMovie.Controllers
         // GET: Movies/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("es-ES");
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("es-ES");
+
             if (id == null)
             {
                 return NotFound();
@@ -118,6 +125,9 @@ namespace MvcMovie.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Movie movie)
         {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("es-ES");
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("es-ES");
+
             if (id != movie.Id)
             {
                 return NotFound();

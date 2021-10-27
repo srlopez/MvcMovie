@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MvcMovie.Models
 {
-    public class Movie
+    public class FakeMovie
     {
         public int Id { get; set; }
 

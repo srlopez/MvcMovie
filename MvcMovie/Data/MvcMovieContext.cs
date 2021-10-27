@@ -15,5 +15,7 @@ namespace MvcMovie.Data
         }
 
         public DbSet<MvcMovie.Models.Movie> Movie { get; set; }
+
+        public DbSet<MvcMovie.Models.FakeMovie> FakeMovie { get; set; }
     }
 }
