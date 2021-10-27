@@ -72,6 +72,8 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
 
+            ViewData["Count"] = await _context.Movie.CountAsync();
+
             return View(movie);
         }
 

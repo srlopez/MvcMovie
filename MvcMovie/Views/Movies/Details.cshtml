@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Details";
+    var valor = 3;
 }
 
 <h1>Details</h1>
@@ -44,5 +45,14 @@
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Back to List</a> |
+    @if ((int)ViewData["Count"] > 0)
+    {
+    <!--
+        @ViewData["Count"]-@Model.Id-@valor
+    -->
+    }
+   
+    <a asp-action="Details" asp-route-id="@(Model.Id - 1)">Prev</a> |
+    <a asp-action="Details" asp-route-id="@(Model.Id + 1)">Next</a>
 </div>
